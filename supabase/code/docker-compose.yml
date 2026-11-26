@@ -79,6 +79,8 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "mail.multforme.com:172.21.0.1"
+    volumes:
+      - ./volumes/auth/nsswitch.conf:/etc/nsswitch.conf:ro
     healthcheck:
       test:
         [
