@@ -79,6 +79,7 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "mail.multforme.com:172.21.0.1"
+      - "multforme.com:172.21.0.1"
     volumes:
       - ./volumes/auth/nsswitch.conf:/etc/nsswitch.conf:ro
     healthcheck:
@@ -133,6 +134,16 @@ services:
       GOTRUE_SMTP_USER: ${SMTP_USER}
       GOTRUE_SMTP_PASS: ${SMTP_PASS}
       GOTRUE_SMTP_SENDER_NAME: ${SMTP_SENDER_NAME}
+      GOTRUE_MAILER_SUBJECTS_CONFIRMATION: "Confirme seu cadastro na MAIA"
+      GOTRUE_MAILER_SUBJECTS_RECOVERY: "Redefinição de senha - MAIA"
+      GOTRUE_MAILER_SUBJECTS_MAGIC_LINK: "Seu link de acesso - MAIA"
+      GOTRUE_MAILER_SUBJECTS_INVITE: "Você foi convidado para a MAIA"
+      GOTRUE_MAILER_SUBJECTS_EMAIL_CHANGE: "Confirme a troca de e-mail - MAIA"
+      GOTRUE_MAILER_TEMPLATES_CONFIRMATION: "https://multforme.com/templates/confirmation.html"
+      GOTRUE_MAILER_TEMPLATES_RECOVERY: "https://multforme.com/templates/recovery.html"
+      GOTRUE_MAILER_TEMPLATES_MAGIC_LINK: "https://multforme.com/templates/magic-link.html"
+      GOTRUE_MAILER_TEMPLATES_INVITE: "https://multforme.com/templates/invite.html"
+      GOTRUE_MAILER_TEMPLATES_EMAIL_CHANGE: "https://multforme.com/templates/email-change.html"
       GOTRUE_MAILER_URLPATHS_INVITE: ${MAILER_URLPATHS_INVITE}
       GOTRUE_MAILER_URLPATHS_CONFIRMATION: ${MAILER_URLPATHS_CONFIRMATION}
       GOTRUE_EXTERNAL_GOOGLE_ENABLED: ${GOOGLE_ENABLED}
