@@ -77,6 +77,8 @@ services:
   auth:
     image: supabase/gotrue:v2.172.1
     restart: unless-stopped
+    extra_hosts:
+      - "mail.multforme.com:172.21.0.1"
     healthcheck:
       test:
         [
